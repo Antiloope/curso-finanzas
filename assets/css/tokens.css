@@ -1,0 +1,76 @@
+/* Finanzas con café — tokens del design system (copiados de su tokens.json).
+   Tema claro por defecto; el oscuro se activa según la preferencia del sistema. */
+
+:root {
+  /* Color */
+  --crema: #f4eee1;
+  --crema-hondo: #ebe3d2;
+  --papel: #fbf8f1;
+  --ticket: #fffdf8;
+  --linea: #d9cfbc;
+  --punteado: #bfb39b;
+  --tinta: #1e2a24;
+  --tinta-suave: #4a524c;
+  --verde: #1f4d3a;
+  --verde-hondo: #163828;
+  --verde-suave: #dce6dd;
+  --sobre-verde: #f4eee1;
+  --panel: #1f4d3a;
+  --sobre-panel: #f4eee1;
+  --sobre-panel-suave: #d3ded6;
+  --icono-panel: #e2b65a;
+  --mostaza: #c98e2b;
+  --mostaza-tinta: #7a5a1e;
+  --aviso-suave: #f3e3c0;
+
+  /* Sombra */
+  --sombra-ticket: 0 14px 22px rgba(30, 42, 36, 0.14);
+
+  /* Tipografía */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Courier Prime", "Courier New", monospace;
+
+  /* Espaciado */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 72px;
+  --space-8: 96px;
+
+  /* Radios */
+  --radius-0: 0px;
+  --radius-sm: 6px;
+  --radius-pill: 999px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --crema: #16201b;
+    --crema-hondo: #111915;
+    --papel: #1e2a24;
+    --ticket: #24302a;
+    --linea: #34413a;
+    --punteado: #4a5850;
+    --tinta: #f1eadb;
+    --tinta-suave: #b9bfb4;
+    --verde: #8cc2a4;
+    --verde-hondo: #a4d2b8;
+    --verde-suave: #213a2e;
+    --sobre-verde: #16201b;
+    --panel: #1f4d3a;
+    --sobre-panel: #f1eadb;
+    --sobre-panel-suave: #c9d6cc;
+    --icono-panel: #e2b65a;
+    --mostaza: #d9a441;
+    --mostaza-tinta: #e2b65a;
+    --aviso-suave: #3a2e14;
+    --sombra-ticket: 0 14px 22px rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+}
