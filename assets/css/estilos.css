@@ -1,8 +1,8 @@
-/* Finanzas con café — componentes del design system (clases fc-) y layout de la página. */
+/* Café y finanzas — componentes del design system (clases fc-) y layout de la página. */
 
 /* Base */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 96px; }
 body { margin: 0; background: var(--crema); color: var(--tinta); font-family: var(--font-sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 img { display: block; max-width: 100%; }
 a { color: var(--verde); }
@@ -35,18 +35,20 @@ a { color: var(--verde); }
 .fc-etiqueta--agotado { background: var(--linea); color: var(--tinta-suave); }
 
 /* Encabezado */
-.fc-encabezado { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3) var(--space-4); padding-block: var(--space-4); padding-inline: var(--gutter); border-bottom: 1px solid var(--linea); }
+/* Queda fijo arriba para que "Reservar lugar" esté siempre a mano. */
+.fc-encabezado { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: var(--space-3) var(--space-4); padding-block: var(--space-3); padding-inline: var(--gutter); background: var(--crema); border-bottom: 1px solid var(--linea); }
 .fc-marca { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
 .fc-marca__nombre { margin: 0; font: 600 24px/1.1 var(--font-display); letter-spacing: -0.01em; color: var(--tinta); text-decoration: none; }
 .fc-marca__autor { font-size: 14px; color: var(--tinta-suave); }
 .fc-nav { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); font-size: 15px; }
+.fc-nav .fc-boton { flex: none; }
 .fc-nav a:not(.fc-boton) { color: var(--tinta); text-decoration: none; }
 .fc-nav a:not(.fc-boton):hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* Hero */
 .fc-hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--space-6); align-items: center; padding-block: var(--space-8) var(--space-7); padding-inline: var(--gutter); }
 .fc-hero__texto { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
-.fc-titulo { margin: 0; font: 400 84px/1 var(--font-display); letter-spacing: -0.025em; text-wrap: balance; }
+.fc-titulo { margin: 0; font: 400 clamp(60px, 7vw, 84px)/1 var(--font-display); letter-spacing: -0.025em; text-wrap: balance; }
 .fc-titulo em { font-style: italic; color: var(--verde); }
 .fc-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); }
 
@@ -58,8 +60,12 @@ a { color: var(--verde); }
 .fc-ticket__marca { font-size: 20px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .fc-ticket__corte { margin: 0; border: 0; border-top: 2px dashed var(--punteado); }
 .fc-ticket__items { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
-.fc-ticket__item { display: flex; align-items: baseline; gap: var(--space-2); }
-.fc-ticket__puntos { flex: 1; min-width: 12px; border-bottom: 2px dotted var(--punteado); }
+/* Puntos guía de ticket: corren por la última línea del renglón, desde la última palabra
+   hasta el precio, aunque el texto ocupe dos líneas. El texto los tapa con el color del papel. */
+.fc-ticket__item { position: relative; padding-right: 6ch; }
+.fc-ticket__item > span:first-child { position: relative; z-index: 1; padding-right: var(--space-2); background: var(--ticket); }
+.fc-ticket__item > span:last-child { position: absolute; right: 0; bottom: 0; }
+.fc-ticket__puntos { position: absolute; left: 0; right: 6ch; bottom: 0.3em; border-bottom: 2px dotted var(--punteado); }
 .fc-ticket__total { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); font-size: 22px; font-weight: 700; }
 .fc-ticket__pie { text-align: center; font-size: 15px; }
 .fc-ticket__borde { display: block; width: 100%; height: 14px; }
@@ -98,9 +104,11 @@ a { color: var(--verde); }
 .fc-lista--no li::before { content: "–"; color: var(--tinta-suave); }
 
 /* Quién da la clase */
-.fc-autor { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: var(--space-6); align-items: center; }
-.fc-autor__foto { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; width: 100%; max-width: 280px; background: var(--crema-hondo); border: 1px solid var(--linea); color: var(--tinta-suave); font-size: 14px; object-fit: cover; }
-.fc-autor__texto { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+.fc-autor { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: var(--space-7); align-items: center; }
+/* La foto va "impresa" en el mismo papel del ticket e inclinada al revés, como apoyada en la mesa. */
+.fc-autor__foto { width: 100%; max-width: 280px; margin: 0; padding: 12px; background: var(--ticket); filter: drop-shadow(var(--sombra-ticket)); transform: rotate(-2deg); }
+.fc-autor__foto img { width: 100%; height: auto; aspect-ratio: 1 / 1; background: var(--crema-hondo); object-fit: cover; object-position: 50% 35%; }
+.fc-autor__texto { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; }
 .fc-autor__nombre { margin: 0; font: 500 30px/1.1 var(--font-display); color: var(--verde); }
 
 /* Preguntas frecuentes */
@@ -131,27 +139,62 @@ a { color: var(--verde); }
 /* Pie */
 .fc-pie { display: flex; flex-direction: column; gap: var(--space-3); padding-block: var(--space-6); padding-inline: var(--gutter); border-top: 1px solid var(--linea); }
 .fc-pie__fila { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-2) var(--space-4); }
+.fc-pie__fila a { overflow-wrap: anywhere; }
 .fc-pie__aviso { margin: 0; font-size: 14px; line-height: 1.5; color: var(--tinta-suave); }
 
 /* Pantallas angostas */
 @media (max-width: 860px) {
   :root { --gutter: max(var(--space-3), env(safe-area-inset-left, 0px)); }
-  .fc-hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); padding-block: var(--space-6) var(--space-7); }
-  .fc-titulo { font-size: 52px; line-height: 1.02; letter-spacing: -0.02em; }
+  html { scroll-padding-top: 80px; }
+  .fc-encabezado { padding-block: 12px; }
+  .fc-hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); padding-block: var(--space-5) var(--space-6); }
+  .fc-titulo { font-size: clamp(46px, 10vw + 15px, 72px); line-height: 1.02; letter-spacing: -0.02em; }
   .fc-seccion, .fc-reserva { padding-block: var(--space-6); }
   .fc-seccion__titulo, .fc-materiales__titulo { font-size: 34px; }
   .fc-dos-columnas, .fc-reserva { grid-template-columns: minmax(0, 1fr); }
   .fc-materiales { padding: var(--space-5) var(--space-4); }
-  .fc-autor { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
-  .fc-autor__foto { max-width: 220px; }
+  .fc-autor { grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
+  .fc-autor__foto { max-width: 240px; margin-left: var(--space-1); }
   .fc-pregunta summary { font-size: 21px; }
   .fc-nav a:not(.fc-boton) { display: none; }
 }
 @media (max-width: 520px) {
+  /* Encabezado en una sola línea: marca a la izquierda, botón a la derecha. */
+  .fc-marca { flex-direction: column; align-items: flex-start; gap: 2px; min-width: 0; }
+  .fc-marca__nombre { font-size: 21px; }
+  .fc-marca__autor { font-size: 13px; }
+  .fc-encabezado .fc-boton--chico { padding: 0 var(--space-3); }
+
+  .fc-volanta { font-size: 13px; letter-spacing: 0.1em; }
+  .fc-bajada { font-size: 18px; }
+  .fc-hero__texto { gap: 20px; }
+
+  /* Botones principales a todo el ancho, más fáciles de tocar con el pulgar. */
+  .fc-acciones .fc-boton { width: 100%; min-height: 52px; padding-inline: var(--space-4); }
+
   .fc-sello { top: -30px; right: 4px; font-size: 13px; }
-  .fc-ticket__papel { padding: 44px 20px var(--space-3); font-size: 14px; }
+  .fc-ticket__papel { padding: 28px 18px var(--space-3); font-size: 14px; }
   .fc-ticket__marca { font-size: 18px; }
   .fc-ticket__total { font-size: 20px; }
+
+  /* El panel verde va de borde a borde. */
+  .fc-materiales { margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
+  .fc-temario__item { grid-template-columns: 32px minmax(0, 1fr); }
+  .fc-lista li { font-size: 16px; }
+
+  .fc-autor__foto { max-width: 220px; padding: 10px; }
+
+  .fc-pregunta summary { padding-block: 18px; font-size: 20px; }
+  .fc-pregunta p { font-size: 16px; }
+
+  .fc-carta { padding: var(--space-4) 18px; }
+  .fc-carta__fila dd { text-wrap: balance; }
+}
+/* Celulares chicos (iPhone SE y similares) */
+@media (max-width: 360px) {
+  .fc-encabezado { gap: 12px; }
+  .fc-marca__nombre { font-size: 18px; white-space: nowrap; }
+  .fc-encabezado .fc-boton--chico { padding: 0 12px; font-size: 14px; }
 }
 
 /* Menos movimiento */
