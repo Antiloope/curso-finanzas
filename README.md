@@ -13,7 +13,16 @@ El diseño sale del design system "Café y finanzas" (tokens, componentes, voz y
 | `assets/css/estilos.css` | Componentes (clases `fc-`) y layout de la página |
 | `assets/img/rodri.jpg` | Foto de "Quién da la clase" (cuadrada) |
 | `assets/favicon.svg` | Ícono de la pestaña |
-| `.nojekyll` | Hace que GitHub Pages sirva los archivos tal cual, sin procesarlos con Jekyll |
+| `_config.yml` | Le dice a GitHub Pages qué no publicar (`impresos/` y este README) |
+| `impresos/` | Hojas A4 para imprimir y dar en la clase. Quedan en el repo pero no se publican |
+
+## Hojas para imprimir
+
+`impresos/plantilla.html` tiene los cuatro tipos de hoja (portada, apertura de módulo, hoja interior y ejercicio) con el estilo de la página, sin contenido. Los estilos están en `impresos/impresos.css`. Para armar una guía, copiá las hojas que necesites a un archivo nuevo en `impresos/` y completá los textos.
+
+Para verlas, con el servidor andando, abrí http://localhost:8080/impresos/plantilla.html. Para imprimir, desde Chrome: A4, márgenes "Ninguno", escala 100%. No hace falta activar "gráficos de fondo".
+
+Cada hoja mide exactamente un A4 y lo que no entra se corta, así que conviene revisar la vista previa de impresión antes de imprimir.
 
 ## Verla en tu compu
 

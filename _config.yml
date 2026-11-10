@@ -1,0 +1,5 @@
+# GitHub Pages arma la página con Jekyll. Los archivos sin encabezado de Jekyll
+# (index.html, CSS, imágenes) se copian tal cual; esta lista dice qué no se publica.
+exclude:
+  - impresos/
+  - README.md
