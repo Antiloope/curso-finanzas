@@ -293,3 +293,69 @@ p, h1, h2, h3, ol, ul, dl, dd { margin: 0; }
 .portada .titulo { font-size: 44pt; }
 .portada__datos { width: 100mm; margin-top: auto; }
 .portada__aviso { font-size: 7.5pt; color: var(--tinta-suave); max-width: 52em; }
+
+/* ---------- Módulo 2 ---------- */
+
+.tercio--doble { flex: 2 2 0; }
+.al-centro { margin-block: auto; }
+.dato { font-size: 9pt; line-height: 1.45; color: var(--tinta-suave); }
+.dato strong { font-weight: 600; color: var(--tinta); }
+.aparte { padding-left: 3.5mm; border-left: 1.2pt solid var(--mostaza); font-size: 9pt; line-height: 1.45; color: var(--tinta-suave); }
+.aparte strong { font-weight: 600; color: var(--mostaza-tinta); }
+
+/* El precio del tiempo: hoy 100, en un año 100 + interés. */
+.precio-tiempo { display: grid; grid-template-columns: 76mm minmax(0, 1fr); gap: 10mm; align-items: center; }
+.precio-tiempo__texto { display: flex; flex-direction: column; gap: 4mm; }
+.barras { display: block; width: 76mm; height: 44mm; overflow: visible; }
+.barras__base { stroke: var(--tinta); stroke-width: 0.35; }
+.barra { fill: none; stroke: var(--tinta); stroke-width: 0.35; }
+.barra--interes { fill: url(#rayado-verde); stroke: var(--verde); }
+.barra--hoy { fill: url(#rayado-verde); stroke: var(--verde); }
+#rayado-verde path { stroke: var(--verde); stroke-width: 0.2; }
+.barras__monto { font: 400 4.2px var(--font-display); fill: var(--tinta); text-anchor: middle; }
+.barras__interes { font: 600 3px var(--font-sans); fill: var(--verde); }
+.barras__tiempo { fill: none; stroke: var(--tinta); stroke-width: 0.35; stroke-dasharray: 1 0.8; }
+.barras__nota { font: italic 400 3.4px var(--font-display); fill: var(--tinta-suave); text-anchor: middle; }
+
+/* Un préstamo entre dos personas: vos en verde, tu amigo en mostaza. */
+.prestamo { display: block; width: 100%; height: auto; margin-block: auto; overflow: visible; }
+.prestamo__icono { fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.prestamo__icono--vos { stroke: var(--verde); }
+.prestamo__icono--amigo { stroke: var(--mostaza); }
+.prestamo__titulo { font: 400 5.4px var(--font-display); fill: var(--tinta); text-anchor: middle; }
+.prestamo__texto { font: 400 3.1px var(--font-sans); fill: var(--tinta-suave); text-anchor: middle; }
+.prestamo__verbo { font: italic 400 4.2px var(--font-display); fill: var(--tinta); text-anchor: middle; }
+.prestamo__verbo--plata { fill: var(--verde); }
+.prestamo__nota { font: 600 2.4px var(--font-sans); letter-spacing: 0.3px; fill: var(--tinta-suave); text-anchor: middle; }
+.prestamo__flecha { fill: none; stroke: var(--tinta); stroke-width: 0.35; stroke-linecap: round; stroke-linejoin: round; }
+.prestamo__flecha--plata { stroke: var(--verde); stroke-width: 0.5; }
+
+/* Costo de oportunidad: lo rayado es lo que dejás de ganar. */
+.curva .curva__zona { fill: url(#rayado-costo); stroke: none; }
+#rayado-costo path { stroke: var(--mostaza); stroke-width: 0.32; }
+.curva__inflacion { stroke: var(--tinta-suave); stroke-width: 0.4; stroke-dasharray: 1.2 0.9; }
+.curva__zona-texto { font: italic 400 3.2px var(--font-display); fill: var(--tinta); text-anchor: middle; paint-order: stroke; stroke: #fff; stroke-width: 1.2px; stroke-linejoin: round; }
+
+/* Cuotas: lo que pagás contra lo que vale en plata de hoy. */
+.cuotas { display: grid; grid-template-columns: 104mm minmax(0, 1fr); gap: 10mm; align-items: center; }
+.cuotas__grafico { display: flex; flex-direction: column; gap: 2.5mm; }
+.cuotas__barras { display: block; width: 104mm; height: 41mm; overflow: visible; }
+.cuotas__pago { font: 600 2.6px var(--font-sans); fill: var(--tinta); text-anchor: middle; }
+.cuotas__valor { font: 600 2.6px var(--font-sans); fill: var(--verde); text-anchor: middle; paint-order: stroke; stroke: #fff; stroke-width: 1px; stroke-linejoin: round; }
+.cambios--compacto .curva { width: 72mm; height: 41.6mm; }
+.cuotas__lado { display: flex; flex-direction: column; gap: 3mm; }
+.cuotas__lado .carta { gap: 1.8mm; }
+.cuotas__lado .carta__fila--total { padding-top: 2mm; }
+.cuotas__clave { display: flex; flex-direction: column; gap: 1.5mm; padding: 0; list-style: none; font-size: 8.5pt; color: var(--tinta-suave); }
+.cuotas__clave li { display: flex; align-items: center; gap: 2mm; }
+.cuotas__marca { width: 3.5mm; height: 3.5mm; border: 0.75pt solid var(--tinta); }
+.cuotas__marca--hoy { border-color: var(--verde); background: repeating-linear-gradient(45deg, var(--verde) 0 0.25mm, transparent 0.25mm 1mm); }
+.cuotas__cuenta { font-size: 9.5pt; }
+.nota-chica { font: italic 400 9.5pt/1.3 var(--font-display); color: var(--tinta-suave); }
+.cuotas__interes { margin-top: -1.5mm; font-size: 8.5pt; color: var(--mostaza-tinta); text-align: right; }
+
+/* El negocio de los bancos: misma gramática que el préstamo; el interés va en mostaza. */
+.banco { width: 138mm; margin: auto; }
+.prestamo__icono--banco { stroke: var(--tinta); stroke-width: 1; }
+.prestamo__flecha--interes { stroke: var(--mostaza); stroke-width: 0.5; }
+.prestamo__verbo--interes { fill: var(--mostaza-tinta); }

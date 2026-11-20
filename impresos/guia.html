@@ -320,8 +320,8 @@
       </footer>
     </section>
 
-    <!-- ============ Hoja 3 · Módulo 2 (en tercios) ============ -->
-    <p class="rotulo">Hoja 3 · Módulo 2</p>
+    <!-- ============ Hoja 3 · Módulo 2: el precio del tiempo y un préstamo ============ -->
+    <p class="rotulo">Hoja 3 · Módulo 2, el precio del tiempo</p>
     <section class="hoja">
       <header class="cabecera">
         <span class="marca">Café y finanzas</span>
@@ -330,27 +330,83 @@
 
       <div class="cuerpo cuerpo--tercios">
 
-        <!-- Primer tercio: apertura del módulo 2 -->
+        <!-- Primer tercio: apertura y la tasa como precio del tiempo -->
         <div class="tercio">
           <div class="bloque">
             <p class="volanta">Módulo 2</p>
             <h2 class="subtitulo">El día en que alguien <em>prestó plata</em></h2>
           </div>
-          <div class="hueco" style="flex: 1;">Primer tercio · pendiente</div>
+
+          <div class="precio-tiempo">
+            <svg class="barras" viewBox="0 0 76 44" role="img" aria-label="Hoy prestás 100. En un año te devuelven 100 más el interés.">
+              <defs>
+                <pattern id="rayado-verde" width="1.4" height="1.4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V1.4"/></pattern>
+              </defs>
+              <path class="barras__base" d="M2 38H74"/>
+              <rect class="barra" x="8" y="14" width="18" height="24"/>
+              <text class="barras__monto" x="17" y="27.5">$ 100</text>
+              <text class="curva__rotulo" x="17" y="42.5" text-anchor="middle">HOY</text>
+              <rect class="barra" x="46" y="14" width="18" height="24"/>
+              <rect class="barra barra--interes" x="46" y="8" width="18" height="6"/>
+              <text class="barras__monto" x="55" y="27.5">$ 100</text>
+              <text class="barras__interes" x="65.8" y="12">+ interés</text>
+              <text class="curva__rotulo" x="55" y="42.5" text-anchor="middle">EN UN AÑO</text>
+              <path class="barras__tiempo" d="M28 12 Q36 3 44 9" marker-end="url(#punta)"/>
+              <text class="barras__nota" x="36" y="3.4">tiempo</text>
+            </svg>
+
+            <div class="precio-tiempo__texto">
+              <p class="dato"><strong>Tasa de interés: el precio del tiempo.</strong> Si te devuelven lo mismo, perdiste el valor del tiempo que prestaste.</p>
+              <p class="aparte"><strong>No tener la plata también cuesta.</strong> Mientras está prestada no la podés usar: esa falta de liquidez también se suele cobrar en la tasa.</p>
+            </div>
+          </div>
         </div>
 
         <hr class="separador">
 
-        <!-- Segundo tercio: pendiente -->
-        <div class="tercio">
-          <div class="hueco" style="flex: 1;">Segundo tercio · pendiente</div>
-        </div>
-
-        <hr class="separador">
-
-        <!-- Tercer tercio: pendiente -->
-        <div class="tercio">
-          <div class="hueco" style="flex: 1;">Tercer tercio · pendiente</div>
+        <!-- Segundo y tercer tercio: un préstamo entre dos personas -->
+        <div class="tercio tercio--doble">
+          <h3 class="titulo-chico">Prestar mueve la rueda</h3>
+          <svg class="prestamo" viewBox="0 0 174 120" role="img" aria-label="Vos le prestás 100 a tu amigo, que compra una máquina de coser, produce ropa y la vende. En un año te devuelve los 100 más el interés y se queda con la fábrica andando.">
+          <text class="curva__rotulo" x="24" y="4" text-anchor="middle">HOY</text>
+          <text class="curva__rotulo" x="24" y="80" text-anchor="middle">EN UN AÑO</text>
+          <g class="prestamo__icono prestamo__icono--vos" transform="translate(16.8 8) scale(0.6)"><circle cx="12" cy="7.5" r="4"/><path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/></g>
+          <text class="prestamo__titulo" x="24" y="30">Vos</text>
+          <text class="prestamo__texto" x="24" y="35.5">Tenés $ 100</text>
+          <text class="prestamo__texto" x="24" y="39.5">ahorrados.</text>
+          <g class="prestamo__icono prestamo__icono--amigo" transform="translate(79.8 8) scale(0.6)"><circle cx="12" cy="7.5" r="4"/><path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/></g>
+          <text class="prestamo__titulo" x="87" y="30">Tu amigo</text>
+          <text class="prestamo__texto" x="87" y="35.5">Quiere armar una</text>
+          <text class="prestamo__texto" x="87" y="39.5">fábrica de costura.</text>
+          <g class="prestamo__icono prestamo__icono--amigo" transform="translate(142.8 8) scale(0.6)"><path d="M3 20h18"/><path d="M5 20v-3h14v3"/><path d="M7 17V7.5A1.5 1.5 0 0 1 8.5 6H17a2 2 0 0 1 2 2v3h-4"/><path d="M15 11v3M13.5 14h3"/><circle cx="10" cy="10" r="1.5"/></g>
+          <text class="prestamo__titulo" x="150" y="30">La máquina</text>
+          <text class="prestamo__texto" x="150" y="35.5">Sin ella no</text>
+          <text class="prestamo__texto" x="150" y="39.5">puede producir.</text>
+          <g class="prestamo__icono prestamo__icono--amigo" transform="translate(142.8 84) scale(0.6)"><path d="M8.5 3.5 3.5 6.5l2 4 2-1V20.5h9V9.5l2 1 2-4-5-3c-.6 1.6-2 2.6-3.5 2.6S9.1 5.1 8.5 3.5z"/></g>
+          <text class="prestamo__titulo" x="150" y="106">La producción</text>
+          <text class="prestamo__texto" x="150" y="111.5">Cose ropa</text>
+          <text class="prestamo__texto" x="150" y="115.5">y la vende.</text>
+          <g class="prestamo__icono prestamo__icono--amigo" transform="translate(79.8 84) scale(0.6)"><circle cx="12" cy="7.5" r="4"/><path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/></g>
+          <text class="prestamo__titulo" x="87" y="106">Tu amigo</text>
+          <text class="prestamo__texto" x="87" y="111.5">Se queda con la</text>
+          <text class="prestamo__texto" x="87" y="115.5">fábrica andando.</text>
+          <g class="prestamo__icono prestamo__icono--vos" transform="translate(16.8 84) scale(0.6)"><circle cx="12" cy="7.5" r="4"/><path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/></g>
+          <text class="prestamo__titulo" x="24" y="106">Vos</text>
+          <text class="prestamo__texto" x="24" y="111.5">Recuperás tu plata</text>
+          <text class="prestamo__texto" x="24" y="115.5">más el interés.</text>
+          <path class="prestamo__flecha prestamo__flecha--plata" d="M37 15.2H74M72.2 13.899999999999999 74 15.2 72.2 16.5"/>
+          <text class="prestamo__verbo prestamo__verbo--plata" x="55.5" y="12.7">le prestás</text>
+          <text class="prestamo__nota" x="55.5" y="20.2">$ 100</text>
+          <path class="prestamo__flecha " d="M100 15.2H137M135.2 13.899999999999999 137 15.2 135.2 16.5"/>
+          <text class="prestamo__verbo" x="118.5" y="12.7">compra</text>
+          <path class="prestamo__flecha " d="M150 45V81M148.7 79.2 150 81 151.3 79.2"/>
+          <text class="prestamo__verbo" x="153" y="64.4" style="text-anchor: start;">produce</text>
+          <path class="prestamo__flecha " d="M137 91.2H100M101.8 89.9 100 91.2 101.8 92.5"/>
+          <text class="prestamo__verbo" x="118.5" y="88.7">vende</text>
+          <path class="prestamo__flecha prestamo__flecha--plata" d="M74 91.2H37M38.8 89.9 37 91.2 38.8 92.5"/>
+          <text class="prestamo__verbo prestamo__verbo--plata" x="55.5" y="88.7">te devuelve</text>
+          <text class="prestamo__nota" x="55.5" y="96.2">$ 100 + INTERÉS</text>
+          </svg>
         </div>
 
       </div>
@@ -358,6 +414,185 @@
       <footer class="pie">
         <span>Rodri Pizarro · curso-finanzas.rodripizarro.com.ar</span>
         <span class="folio">3</span>
+      </footer>
+    </section>
+
+    <!-- ============ Hoja 4 · Módulo 2: costo de oportunidad, cuotas y bancos (en tercios) ============ -->
+    <p class="rotulo">Hoja 4 · Módulo 2, costo de oportunidad, cuotas y bancos</p>
+    <section class="hoja">
+      <header class="cabecera">
+        <span class="marca">Café y finanzas</span>
+        <span class="seccion">Módulo 2 · El día en que alguien prestó plata</span>
+      </header>
+
+      <div class="cuerpo cuerpo--tercios">
+
+        <!-- Primer tercio: costo de oportunidad -->
+        <div class="tercio">
+          <div class="bloque">
+            <p class="volanta">Costo de oportunidad</p>
+            <h3 class="titulo-chico">El costo de no hacer nada</h3>
+          </div>
+
+          <div class="cambios cambios--compacto al-centro">
+            <figure class="cambio">
+              <svg class="curva" viewBox="0 0 90 52" role="img" aria-label="Prestada, la plata crece por encima de la inflación. Guardada en el colchón queda igual y la inflación la deja atrás. Lo rayado entre prestada y colchón es el costo de oportunidad.">
+                <defs>
+                  <pattern id="rayado-costo" width="1.4" height="1.4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V1.4"/></pattern>
+                </defs>
+                <path class="curva__zona" d="M12 34 72 8V34z"/>
+                <path class="curva__eje" d="M8 46V2.5" marker-end="url(#punta)"/>
+                <path class="curva__eje" d="M8 46H87" marker-end="url(#punta)"/>
+                <text class="curva__rotulo" x="10.5" y="4.5">PLATA</text>
+                <text class="curva__rotulo" x="87" y="51" text-anchor="end">TIEMPO</text>
+                <path class="curva__inflacion" d="M12 34 72 22"/>
+                <path class="curva__oferta" d="M12 34H72"/>
+                <path class="curva__demanda" d="M12 34 72 8"/>
+                <circle class="curva__punto" cx="12" cy="34" r="1.1"/>
+                <text class="curva__nota" x="12" y="38.8" text-anchor="middle">hoy</text>
+                <text class="curva__nombre curva__nombre--demanda" x="73.5" y="8.8">Prestada</text>
+                <text class="curva__nota" x="73.5" y="23">inflación</text>
+                <text class="curva__nombre curva__nombre--oferta" x="73.5" y="33.6">En el</text>
+                <text class="curva__nombre curva__nombre--oferta" x="73.5" y="37">colchón</text>
+                <path class="curva__flecha" d="M33 15.6 46 25"/>
+                <text class="curva__zona-texto" x="30" y="10">costo de</text>
+                <text class="curva__zona-texto" x="30" y="13.4">oportunidad</text>
+              </svg>
+              <figcaption><strong>Prestar o guardar.</strong> Lo rayado es lo que dejás de ganar. En el colchón, la inflación te deja atrás.</figcaption>
+            </figure>
+
+            <figure class="cambio">
+              <svg class="curva" viewBox="0 0 90 52" role="img" aria-label="Dos préstamos: Mariela al 6 por ciento y Pedro al 5 por ciento, los dos por encima de la inflación. Lo rayado entre los dos, el costo de oportunidad, es chico.">
+                <path class="curva__zona" d="M12 34 72 8 72 13z"/>
+                <path class="curva__eje" d="M8 46V2.5" marker-end="url(#punta)"/>
+                <path class="curva__eje" d="M8 46H87" marker-end="url(#punta)"/>
+                <text class="curva__rotulo" x="10.5" y="4.5">PLATA</text>
+                <text class="curva__rotulo" x="87" y="51" text-anchor="end">TIEMPO</text>
+                <path class="curva__inflacion" d="M12 34 72 22"/>
+                <path class="curva__oferta" d="M12 34 72 13"/>
+                <path class="curva__demanda" d="M12 34 72 8"/>
+                <circle class="curva__punto" cx="12" cy="34" r="1.1"/>
+                <text class="curva__nota" x="12" y="38.8" text-anchor="middle">hoy</text>
+                <text class="curva__nombre curva__nombre--demanda" x="73.5" y="8.8">Mariela · 6%</text>
+                <text class="curva__nombre curva__nombre--oferta" x="73.5" y="14.4">Pedro · 5%</text>
+                <text class="curva__nota" x="73.5" y="23">inflación</text>
+                <path class="curva__flecha" d="M38 14.6 61.5 15.2"/>
+                <text class="curva__zona-texto" x="30" y="10">costo de</text>
+                <text class="curva__zona-texto" x="30" y="13.4">oportunidad</text>
+              </svg>
+              <figcaption><strong>Prestar a uno o a otro.</strong> Entre dos préstamos parecidos, lo que dejás de ganar es mucho menos.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <hr class="separador">
+
+        <!-- Segundo tercio: contado o cuotas -->
+        <div class="tercio">
+          <div class="bloque">
+            <p class="volanta">Cuotas</p>
+            <h3 class="titulo-chico">¿Contado o en cuotas?</h3>
+            <p class="dato">Una heladera: <strong>$ 100.000 de contado</strong> o <strong>6 cuotas de $ 20.000</strong>. Inflación inventada: <strong>6% por mes</strong>.</p>
+          </div>
+
+          <div class="cuotas al-centro">
+            <div class="cuotas__grafico">
+              <svg class="cuotas__barras" viewBox="0 0 104 41" role="img" aria-label="Seis cuotas de 20.000. Con 6 por ciento de inflación por mes, en plata de hoy valen 18.900, 17.800, 16.800, 15.800, 14.900 y 14.100.">
+                <path class="barras__base" d="M1 36H103"/>
+                <rect class="barra" x="4" y="12" width="12" height="24"/>
+                <rect class="barra barra--hoy" x="4" y="13.3" width="12" height="22.7"/>
+                <text class="cuotas__pago" x="10" y="9.8">$ 20.000</text>
+                <text class="cuotas__valor" x="10" y="17.9">18.900</text>
+                <text class="curva__rotulo" x="10" y="40.6" text-anchor="middle">MES 1</text>
+                <rect class="barra" x="21" y="12" width="12" height="24"/>
+                <rect class="barra barra--hoy" x="21" y="14.6" width="12" height="21.4"/>
+                <text class="cuotas__pago" x="27" y="9.8">$ 20.000</text>
+                <text class="cuotas__valor" x="27" y="19.2">17.800</text>
+                <text class="curva__rotulo" x="27" y="40.6" text-anchor="middle">MES 2</text>
+                <rect class="barra" x="38" y="12" width="12" height="24"/>
+                <rect class="barra barra--hoy" x="38" y="15.8" width="12" height="20.2"/>
+                <text class="cuotas__pago" x="44" y="9.8">$ 20.000</text>
+                <text class="cuotas__valor" x="44" y="20.4">16.800</text>
+                <text class="curva__rotulo" x="44" y="40.6" text-anchor="middle">MES 3</text>
+                <rect class="barra" x="55" y="12" width="12" height="24"/>
+                <rect class="barra barra--hoy" x="55" y="17.0" width="12" height="19.0"/>
+                <text class="cuotas__pago" x="61" y="9.8">$ 20.000</text>
+                <text class="cuotas__valor" x="61" y="21.6">15.800</text>
+                <text class="curva__rotulo" x="61" y="40.6" text-anchor="middle">MES 4</text>
+                <rect class="barra" x="72" y="12" width="12" height="24"/>
+                <rect class="barra barra--hoy" x="72" y="18.1" width="12" height="17.9"/>
+                <text class="cuotas__pago" x="78" y="9.8">$ 20.000</text>
+                <text class="cuotas__valor" x="78" y="22.7">14.900</text>
+                <text class="curva__rotulo" x="78" y="40.6" text-anchor="middle">MES 5</text>
+                <rect class="barra" x="89" y="12" width="12" height="24"/>
+                <rect class="barra barra--hoy" x="89" y="19.1" width="12" height="16.9"/>
+                <text class="cuotas__pago" x="95" y="9.8">$ 20.000</text>
+                <text class="cuotas__valor" x="95" y="23.7">14.100</text>
+                <text class="curva__rotulo" x="95" y="40.6" text-anchor="middle">MES 6</text>
+              </svg>
+            </div>
+
+            <div class="cuotas__lado">
+            <dl class="carta cuotas__cuenta">
+              <div class="carta__fila"><dt>Contado</dt><dd>$ 100.000</dd></div>
+              <div class="carta__fila"><dt>6 cuotas</dt><dd>$ 120.000</dd></div>
+              <p class="cuotas__interes">$ 20.000 de interés</p>
+              <div class="carta__fila carta__fila--total"><dt>En plata de hoy</dt><dd>$ 98.300</dd></div>
+            </dl>
+            <ul class="cuotas__clave">
+              <li><span class="cuotas__marca" aria-hidden="true"></span>Lo que pagás cada mes</li>
+              <li><span class="cuotas__marca cuotas__marca--hoy" aria-hidden="true"></span>Lo que vale en plata de hoy</li>
+            </ul>
+            </div>
+          </div>
+
+          <p class="nota-chica">Comprar en cuotas es pedirle plata prestada al banco.</p>
+        </div>
+
+        <hr class="separador">
+
+        <!-- Tercer tercio: el negocio de los bancos -->
+        <div class="tercio">
+          <div class="bloque">
+            <p class="volanta">Bancos</p>
+            <h3 class="titulo-chico">El negocio de los bancos</h3>
+          </div>
+
+          <svg class="prestamo banco" viewBox="0 0 174 52" role="img" aria-label="Vos dejás tu plata en el banco y el banco te paga una tasa pasiva, por ejemplo 4 por ciento. El banco la presta a otra persona, que le paga una tasa activa, por ejemplo 10 por ciento. La diferencia es lo que gana el banco.">
+          <g class="prestamo__icono prestamo__icono--vos" transform="translate(16.8 4.8) scale(0.6)"><circle cx="12" cy="7.5" r="4"/><path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/></g>
+          <g class="prestamo__icono prestamo__icono--banco" transform="translate(77.4 2.4) scale(0.8)"><path d="M3 9 12 3.5 21 9z"/><path d="M6 11.5v6.5M10 11.5v6.5M14 11.5v6.5M18 11.5v6.5"/><path d="M4.5 18.5h15M3 21h18"/></g>
+          <g class="prestamo__icono prestamo__icono--amigo" transform="translate(142.8 4.8) scale(0.6)"><circle cx="12" cy="7.5" r="4"/><path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/></g>
+          <text class="prestamo__titulo" x="24" y="28">Vos</text>
+          <text class="prestamo__texto" x="24" y="33.5">Dejás tu plata</text>
+          <text class="prestamo__texto" x="24" y="37.5">en el banco.</text>
+          <text class="prestamo__titulo" x="87" y="28">El banco</text>
+          <text class="prestamo__texto" x="87" y="33.5">Guarda la plata</text>
+          <text class="prestamo__texto" x="87" y="37.5">y la presta.</text>
+          <text class="prestamo__titulo" x="150" y="28">Otra persona</text>
+          <text class="prestamo__texto" x="150" y="33.5">Pide un préstamo</text>
+          <text class="prestamo__texto" x="150" y="37.5">para una casa o un negocio.</text>
+          <path class="prestamo__flecha prestamo__flecha--plata" d="M37 9H74M72.2 7.7 74 9 72.2 10.3"/>
+          <text class="prestamo__verbo prestamo__verbo--plata" x="55.5" y="6.5">depositás</text>
+          <path class="prestamo__flecha prestamo__flecha--plata" d="M100 9H137M135.2 7.7 137 9 135.2 10.3"/>
+          <text class="prestamo__verbo prestamo__verbo--plata" x="118.5" y="6.5">presta</text>
+          <path class="prestamo__flecha prestamo__flecha--interes" d="M74 15.5H37M38.8 14.2 37 15.5 38.8 16.8"/>
+          <text class="prestamo__verbo prestamo__verbo--interes" x="55.5" y="20">te paga 4%</text>
+          <text class="prestamo__nota" x="55.5" y="23.6">TASA PASIVA</text>
+          <path class="prestamo__flecha prestamo__flecha--interes" d="M137 15.5H100M101.8 14.2 100 15.5 101.8 16.8"/>
+          <text class="prestamo__verbo prestamo__verbo--interes" x="118.5" y="20">le paga 10%</text>
+          <text class="prestamo__nota" x="118.5" y="23.6">TASA ACTIVA</text>
+          <text class="prestamo__verbo prestamo__verbo--interes" x="87" y="45.5">Gana la diferencia</text>
+          <text class="prestamo__nota" x="87" y="49.5">10% − 4% = 6%</text>
+          </svg>
+
+          <p class="aparte"><strong>Encaje.</strong> Por ley, una parte de lo depositado tiene que quedar siempre disponible en el banco: esa no se presta.</p>
+        </div>
+
+      </div>
+
+      <footer class="pie">
+        <span>Rodri Pizarro · curso-finanzas.rodripizarro.com.ar</span>
+        <span class="folio">4</span>
       </footer>
     </section>
 
