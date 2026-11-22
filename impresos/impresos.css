@@ -359,3 +359,34 @@ p, h1, h2, h3, ol, ul, dl, dd { margin: 0; }
 .prestamo__icono--banco { stroke: var(--tinta); stroke-width: 1; }
 .prestamo__flecha--interes { stroke: var(--mostaza); stroke-width: 0.5; }
 .prestamo__verbo--interes { fill: var(--mostaza-tinta); }
+
+/* ---------- Módulo 3 ---------- */
+
+/* Números de orden */
+.num { display: inline-grid; place-items: center; flex: none; width: 6.5mm; height: 6.5mm; border: 1pt solid var(--verde); border-radius: 50%; font: italic 400 12pt/1 var(--font-display); color: var(--verde); }
+.num--mostaza { border-color: var(--mostaza); color: var(--mostaza-tinta); }
+
+/* La cuenta: ingresos − gastos = excedente */
+.palancas { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); gap: 3mm; }
+.palanca { display: flex; flex-direction: column; align-items: center; gap: 1.2mm; padding: 3.5mm 2mm 3mm; border: 0.75pt solid var(--linea); text-align: center; }
+.palanca--excedente { border-color: var(--verde); }
+.palanca__nombre { font: 400 17pt/1.05 var(--font-display); }
+.palanca--ingresos .palanca__nombre, .palanca--excedente .palanca__nombre { color: var(--verde); }
+.palanca--gastos .palanca__nombre { color: var(--mostaza-tinta); }
+.palanca__texto { font-size: 8.5pt; line-height: 1.35; color: var(--tinta-suave); }
+.signo { align-self: center; font: 300 20pt/1 var(--font-display); color: var(--tinta-suave); }
+
+/* ¿Por qué en ese orden? Tres paneles que comparten la línea del mínimo. */
+.orden { display: block; width: 174mm; height: 40mm; overflow: visible; }
+.orden__base { fill: none; stroke: var(--tinta); stroke-width: 0.35; }
+.orden__gasto { fill: url(#rayado-costo); stroke: var(--mostaza); stroke-width: 0.35; }
+.orden__ingreso { fill: none; stroke: var(--verde); stroke-width: 0.35; }
+.orden__sobra, .orden__excedente { fill: url(#rayado-verde); stroke: var(--verde); stroke-width: 0.35; }
+.orden .curva__inflacion { fill: none; }
+.orden__pies { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9mm; }
+
+/* Invertir: con y sin el curso */
+.inversion { display: grid; grid-template-columns: 104mm minmax(0, 1fr); gap: 7mm; align-items: center; }
+.inversion__grafico { width: 104mm; height: 52mm; }
+.curva .curva__zona--verde { fill: url(#rayado-verde); }
+.inversion__texto { display: flex; flex-direction: column; gap: 3mm; }
