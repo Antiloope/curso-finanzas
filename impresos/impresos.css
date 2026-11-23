@@ -297,6 +297,7 @@ p, h1, h2, h3, ol, ul, dl, dd { margin: 0; }
 /* ---------- Módulo 2 ---------- */
 
 .tercio--doble { flex: 2 2 0; }
+.tercio--chico { flex: 0.8 0.8 0; }
 .al-centro { margin-block: auto; }
 .dato { font-size: 9pt; line-height: 1.45; color: var(--tinta-suave); }
 .dato strong { font-weight: 600; color: var(--tinta); }
@@ -337,15 +338,17 @@ p, h1, h2, h3, ol, ul, dl, dd { margin: 0; }
 .curva__zona-texto { font: italic 400 3.2px var(--font-display); fill: var(--tinta); text-anchor: middle; paint-order: stroke; stroke: #fff; stroke-width: 1.2px; stroke-linejoin: round; }
 
 /* Cuotas: lo que pagás contra lo que vale en plata de hoy. */
-.cuotas { display: grid; grid-template-columns: 104mm minmax(0, 1fr); gap: 10mm; align-items: center; }
+.cuotas { display: grid; grid-template-columns: 96mm minmax(0, 1fr); gap: 8mm; align-items: center; }
 .cuotas__grafico { display: flex; flex-direction: column; gap: 2.5mm; }
-.cuotas__barras { display: block; width: 104mm; height: 41mm; overflow: visible; }
-.cuotas__pago { font: 600 2.6px var(--font-sans); fill: var(--tinta); text-anchor: middle; }
-.cuotas__valor { font: 600 2.6px var(--font-sans); fill: var(--verde); text-anchor: middle; paint-order: stroke; stroke: #fff; stroke-width: 1px; stroke-linejoin: round; }
+.cuotas__barras { display: block; width: 96mm; height: 41mm; overflow: visible; }
+.cuotas__pago { font: 600 2.8px var(--font-sans); fill: var(--tinta); text-anchor: middle; }
+.cuotas__valor { font: 600 2.8px var(--font-sans); fill: var(--verde); text-anchor: middle; paint-order: stroke; stroke: #fff; stroke-width: 1px; stroke-linejoin: round; }
 .cambios--compacto .curva { width: 72mm; height: 41.6mm; }
 .cuotas__lado { display: flex; flex-direction: column; gap: 3mm; }
 .cuotas__lado .carta { gap: 1.8mm; }
 .cuotas__lado .carta__fila--total { padding-top: 2mm; }
+.cuotas__lado .carta__fila dt { white-space: nowrap; }
+.cuotas__lado .carta__fila--total dd { font-size: 14pt; }
 .cuotas__clave { display: flex; flex-direction: column; gap: 1.5mm; padding: 0; list-style: none; font-size: 8.5pt; color: var(--tinta-suave); }
 .cuotas__clave li { display: flex; align-items: center; gap: 2mm; }
 .cuotas__marca { width: 3.5mm; height: 3.5mm; border: 0.75pt solid var(--tinta); }
@@ -390,3 +393,51 @@ p, h1, h2, h3, ol, ul, dl, dd { margin: 0; }
 .inversion__grafico { width: 104mm; height: 52mm; }
 .curva .curva__zona--verde { fill: url(#rayado-verde); }
 .inversion__texto { display: flex; flex-direction: column; gap: 3mm; }
+
+/* Gestión del excedente: tres polos (rendimiento, bajo riesgo, liquidez); cada opción queda más cerca de unos que de otros. */
+.trilema { display: grid; grid-template-columns: 104mm minmax(0, 1fr); gap: 7mm; align-items: center; }
+.trilema__grafico { display: block; width: 104mm; height: 57mm; overflow: visible; }
+.trilema__contorno { fill: none; stroke: var(--punteado); stroke-width: 0.4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0 1.4; }
+.trilema__polo { fill: var(--verde); }
+.trilema__nombre { font: 400 4.8px var(--font-display); fill: var(--verde); text-anchor: middle; }
+.trilema__opcion { fill: var(--mostaza); }
+.trilema__ejemplo { font: 600 3.1px var(--font-sans); fill: var(--tinta); }
+.trilema__texto { display: flex; flex-direction: column; gap: 3mm; }
+
+/* Fondo de emergencia: un bloque por mes de gastos; los tres primeros, lo mínimo. */
+.colchon { display: grid; grid-template-columns: 100mm minmax(0, 1fr); gap: 8mm; align-items: center; }
+.colchon__grafico { width: 100mm; height: 31mm; }
+.colchon__mes { fill: url(#rayado-verde); stroke: var(--verde); stroke-width: 0.35; }
+.colchon__mes--vacio { fill: #fff; stroke-dasharray: 1 0.8; }
+.colchon__texto { display: flex; flex-direction: column; gap: 3mm; }
+.curva__eje--punteada { stroke-dasharray: 1 0.8; }
+
+/* Horizonte temporal: corto, mediano y largo plazo, cada uno con su triangulito. */
+.horizonte { width: 174mm; height: 39mm; }
+.horizonte__plazo { font: italic 400 3.6px var(--font-display); fill: var(--tinta); text-anchor: middle; }
+.horizonte__pies { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9mm; }
+
+/* Triangulito: mismos polos que el grande; en verde lo que conviene, hueco lo que se puede resignar. */
+.mini__contorno, .curva .mini__contorno { fill: none; stroke: var(--punteado); stroke-width: 0.35; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0 1.1; }
+.mini__polo { fill: #fff; stroke: var(--punteado); stroke-width: 0.35; }
+.mini__polo--si { fill: var(--verde); stroke: none; }
+.mini__rotulo { font: 600 2.1px var(--font-sans); letter-spacing: 0.3px; fill: var(--tinta-suave); text-anchor: middle; }
+.mini__rotulo--si { fill: var(--verde); }
+
+/* Diversificar: la misma caída, con todo en una o repartido en cuatro. */
+.diversificar { display: grid; grid-template-columns: 110mm minmax(0, 1fr); gap: 8mm; align-items: center; }
+.diversificar__grafico { display: block; width: 110mm; height: 35mm; overflow: visible; }
+.diversificar__queda { fill: url(#rayado-verde); stroke: var(--verde); stroke-width: 0.35; }
+.diversificar__pierde { fill: #fff; stroke: var(--mostaza); stroke-width: 0.35; stroke-dasharray: 1 0.8; }
+.diversificar__monto { font: 400 4.6px var(--font-display); fill: var(--mostaza-tinta); }
+.diversificar__monto--verde { fill: var(--verde); }
+.diversificar__texto { display: flex; flex-direction: column; gap: 3mm; }
+
+/* Guía final: una idea grande y cuatro cosas a evitar. */
+.principio { max-width: 150mm; font: 400 17pt/1.3 var(--font-display); letter-spacing: -0.01em; text-wrap: balance; }
+.principio em { font-style: italic; color: var(--verde); }
+.evitar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6mm 9mm; margin: 0; padding: 0; list-style: none; }
+.evitar__item { display: grid; grid-template-columns: 10mm minmax(0, 1fr); gap: 3.5mm; align-items: start; padding: 4.5mm 4.5mm; border: 0.75pt solid var(--linea); }
+.evitar__icono { width: 10mm; height: 10mm; fill: none; stroke: var(--mostaza); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.evitar__titulo { font: 400 11.5pt/1.2 var(--font-display); color: var(--tinta); }
+.evitar__texto { margin-top: 1.2mm; font-size: 9pt; line-height: 1.4; color: var(--tinta-suave); }
