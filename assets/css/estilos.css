@@ -85,16 +85,8 @@ a { color: var(--verde); }
 .fc-temario__titulo { margin: 0 0 6px; font: 600 19px/1.3 var(--font-sans); }
 .fc-temario__texto { margin: 0; color: var(--tinta-suave); }
 
-/* Materiales */
-.fc-materiales { display: flex; flex-direction: column; gap: var(--space-4); padding: 40px; background: var(--panel); color: var(--sobre-panel); }
-.fc-materiales__titulo { margin: 0; font: 400 44px/1.1 var(--font-display); letter-spacing: -0.02em; color: var(--sobre-panel); }
-.fc-materiales__lista { display: flex; flex-direction: column; gap: 22px; margin: 0; padding: 0; list-style: none; }
-.fc-materiales__item { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: var(--space-3); align-items: start; }
-.fc-materiales__item svg { width: 26px; height: 26px; color: var(--icono-panel); }
-.fc-materiales__nombre { margin: 0 0 4px; font: 600 18px/1.3 var(--font-sans); }
-.fc-materiales__texto { margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--sobre-panel-suave); }
-
-/* Para quién es */
+/* Para quién es. El fondo verde es el del panel que antes ocupaba "Te llevás". */
+.fc-seccion--panel { background: var(--panel); color: var(--sobre-panel); }
 .fc-lista-titulo { margin: 0; font: 400 26px/1.25 var(--font-display); }
 .fc-lista { display: flex; flex-direction: column; gap: 14px; margin: 0; padding: 0; list-style: none; }
 .fc-lista li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: var(--space-2); font-size: 17px; line-height: 1.5; }
@@ -102,6 +94,9 @@ a { color: var(--verde); }
 .fc-lista--si li::before { content: "+"; color: var(--verde); }
 .fc-lista--no li { color: var(--tinta-suave); }
 .fc-lista--no li::before { content: "–"; color: var(--tinta-suave); }
+.fc-seccion--panel .fc-lista--si li::before,
+.fc-seccion--panel .fc-lista--no li::before { color: var(--icono-panel); }
+.fc-seccion--panel .fc-lista--no li { color: var(--sobre-panel-suave); }
 
 /* Quién da la clase */
 .fc-autor { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: var(--space-7); align-items: center; }
@@ -150,9 +145,8 @@ a { color: var(--verde); }
   .fc-hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); padding-block: var(--space-5) var(--space-6); }
   .fc-titulo { font-size: clamp(46px, 10vw + 15px, 72px); line-height: 1.02; letter-spacing: -0.02em; }
   .fc-seccion, .fc-reserva { padding-block: var(--space-6); }
-  .fc-seccion__titulo, .fc-materiales__titulo { font-size: 34px; }
+  .fc-seccion__titulo { font-size: 34px; }
   .fc-dos-columnas, .fc-reserva { grid-template-columns: minmax(0, 1fr); }
-  .fc-materiales { padding: var(--space-5) var(--space-4); }
   .fc-autor { grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
   .fc-autor__foto { max-width: 240px; margin-left: var(--space-1); }
   .fc-pregunta summary { font-size: 21px; }
@@ -177,8 +171,6 @@ a { color: var(--verde); }
   .fc-ticket__marca { font-size: 18px; }
   .fc-ticket__total { font-size: 20px; }
 
-  /* El panel verde va de borde a borde. */
-  .fc-materiales { margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
   .fc-temario__item { grid-template-columns: 32px minmax(0, 1fr); }
   .fc-lista li { font-size: 16px; }
 

@@ -37,7 +37,7 @@ Después abrí http://localhost:8080. Para ver la versión de celular, usá el m
 Fecha, lugar, horario, precio y cupo aparecen en más de un lugar de `index.html`: la volanta del inicio, el ticket, las preguntas frecuentes y la carta de la reserva. Si cambiás alguno, buscalo en todo el archivo:
 
 ```bash
-grep -n "5 de diciembre\|Boerr\|30.000\|7 personas" index.html
+grep -n "5 de diciembre\|Boerr\|7 personas" index.html
 ```
 
 El número de WhatsApp está en el botón de reserva, con el formato `549` + código de área sin el 0 + número sin el 15.
